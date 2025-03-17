@@ -1,0 +1,16 @@
+:root {
+    --dark-bg: 94, 70, 122;
+    --light: #eeeeee;
+    --dark: #222831;
+    --acc-p: #b39f72;
+    --acc-s: #564a1c;
+    --bg-p: #230321;
+    --bg-s: #4a2858;
+    --emph: #9a7eCe;
+    --text-clear: #fefefe;
+    --text-hiCon: #fefefe;
+    --text-medCon: #fefefe;
+    --text-loCon: #fefefe;
+    --white: #fff;
+    --black: #000;
+  }
