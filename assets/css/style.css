@@ -28,7 +28,7 @@ header{
     background-color: #4a2858;
     color: var(--acc-p);
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,4 +53,52 @@ header{
 
 #language:hover {
     background-color: var(--acc-s); /* Bleu foncé au survol */
+}
+
+nav{
+    width: 100%;
+    background-color: var(--emph);
+    color: var(--dark);
+    display: flex;
+    justify-content: space-around;
+}
+
+nav a{
+    text-align: center;
+    padding: 2rem;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    width: 100%;
+}
+
+nav a:hover{
+    background-color: var(--bg-s);
+    color: var(--emph);
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
+    gap: 10px; /* Espacement entre les blocs */
+    max-width: 900px; /* Largeur max de la galerie */
+    margin: 2rem auto;
+}
+
+.gallery-item {
+    width: 100%; /* S'adapte à la colonne */
+    aspect-ratio: 4 / 3; /* Ratio 3:4 */
+    background-color: var(--bg-p); /* Couleur de fond (modifiable) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px; /* Coins arrondis */
+    transition: background 0.3s ease;
+}
+
+.gallery-item:hover{
+    cursor: pointer;
+    background-color: var(--bg-s);
 }
