@@ -7,10 +7,9 @@
     --bg-p: #230321;
     --bg-s: #4a2858;
     --emph: #9a7eCe;
-    --text-clear: #fefefe;
-    --text-hiCon: #fefefe;
-    --text-medCon: #fefefe;
-    --text-loCon: #fefefe;
-    --white: #fff;
-    --black: #000;
+  }
+
+  *{
+    margin: 0;
+    padding: 0;
   }
