@@ -52,7 +52,7 @@ header{
 }
 
 #language:hover {
-    background-color: var(--acc-s); /* Bleu foncé au survol */
+    background-color: var(--acc-s); 
 }
 
 nav{
@@ -63,13 +63,12 @@ nav{
     justify-content: space-around;
     position: sticky;
     top: 0;
-    padding: 10px 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre pour le distinguer */
     text-align: center;
-    z-index: 1000; /* S'assure qu'il reste au-dessus des autres éléments */
+    z-index: 1000; 
 }
 
 nav a{
+    color:var(--acc-s);
     text-align: center;
     padding: 2rem;
     text-decoration: none;
@@ -81,6 +80,60 @@ nav a:hover{
     background-color: var(--bg-s);
     color: var(--emph);
 }
+
+/*-------------------------------------PRESENTATION------------------------------------------*/
+
+#presentation {
+    display: flex;
+    align-items: flex-start; /* Aligne les éléments en haut */
+    gap: 20px; /* Espacement entre les parties */
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+#side-pres {
+    flex: 1; /* Prend 1/3 de la largeur */
+    max-width: 30%;
+    position: sticky;
+    top: 80px; /* Ajuste pour ne pas couvrir le menu */
+    background: white; /* Optionnel : évite la transparence */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#side-pres img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+#side-pres ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#side-pres li {
+    background: #f4f4f4;
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+#content {
+    flex: 2; /* Prend 2/3 de la largeur */
+    max-width: 65%;
+}
+
+hr {
+    width: 100%;
+    border: 1px solid #ddd;
+    margin: 20px 0;
+}
+
+/*-----------------------------------------GALLERY---------------------------------------*/
 
 .gallery {
     display: grid;
