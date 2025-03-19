@@ -61,6 +61,12 @@ nav{
     color: var(--dark);
     display: flex;
     justify-content: space-around;
+    position: sticky;
+    top: 0;
+    padding: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre pour le distinguer */
+    text-align: center;
+    z-index: 1000; /* S'assure qu'il reste au-dessus des autres éléments */
 }
 
 nav a{
