@@ -1,10 +1,8 @@
-/*-------------------------------NAV SELECTOR--------------------------*/
-
 document.addEventListener("DOMContentLoaded", function () {
     const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll("nav a");
+    const navLinks = document.querySelectorAll("#nav-menu a");
 
-    function updateActiveLink() {
+    function updateActiveSection() {
         let currentSection = "presentation"; // Section par défaut
         let minDistance = Infinity;
 
@@ -15,6 +13,14 @@ document.addEventListener("DOMContentLoaded", function () {
             if (distance < minDistance) {
                 minDistance = distance;
                 currentSection = section.id;
+            }
+        });
+
+        sections.forEach(section => {
+            if (section.id === currentSection) {
+                section.classList.add("active");
+            } else {
+                section.classList.remove("active");
             }
         });
 
@@ -44,7 +50,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Événement de défilement
-    window.addEventListener("scroll", updateActiveLink);
-    updateActiveLink(); // Vérification initiale
+    window.addEventListener("scroll", updateActiveSection);
+    updateActiveSection(); // Vérification initiale
 });
-
