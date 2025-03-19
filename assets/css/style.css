@@ -14,10 +14,6 @@
     padding: 0;
   }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body{
     background-color: var(--acc-p);
 }
@@ -85,18 +81,65 @@ nav a:hover{
     color: var(--emph);
 }
 
-/* Animation de fade-in des sections */
+/* 🟢 Style du NAV : Seul le lien actif est visible */
+#nav-menu {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: opacity 0.5s ease;
+}
+
+#nav-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#nav-menu li {
+    display: inline-block;
+}
+
+#nav-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* 🟢 Seul le lien actif s'affiche */
+#nav-menu a.active {
+    opacity: 1;
+    visibility: visible;
+    font-weight: bold;
+}
+
+/* 🔴 Cacher toutes les sections sauf l’active */
 section {
+    display: none;
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* Section visible */
+/* 🟢 La section active est affichée */
 section.active {
+    display: block;
     opacity: 1;
     transform: translateY(0);
 }
+
+/* 🔵 Défilement fluide */
+html {
+    scroll-behavior: smooth;
+}
+
 
 /*-------------------------------------PRESENTATION------------------------------------------*/
 
