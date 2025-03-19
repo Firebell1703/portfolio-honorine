@@ -121,19 +121,15 @@ nav a:hover{
     color: #ffcc00;
 }
 
-/* 🔴 Cacher toutes les sections sauf l’active */
 section {
-    display: none;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+  display: none; /* Cache toutes les sections par défaut */
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out; /* Animation fluide */
 }
 
-/* 🟢 La section active est affichée */
 section.active {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
+  display: block;
+  opacity: 1;
 }
 
 /* 🔵 Défilement fluide */
