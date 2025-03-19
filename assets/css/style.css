@@ -81,22 +81,26 @@ nav a:hover{
     color: var(--emph);
 }
 
-/* 🟢 Style du NAV : Seul le lien actif est visible */
+/* 🟢 NAVIGATION en sticky en haut */
 #nav-menu {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.7);
-    padding: 10px 20px;
-    border-radius: 8px;
-    transition: opacity 0.5s ease;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 15px 0;
+    z-index: 1000;
+    text-align: center;
 }
 
+/* 🟢 Tous les liens sont affichés */
 #nav-menu ul {
     list-style: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 #nav-menu li {
@@ -106,18 +110,15 @@ nav a:hover{
 #nav-menu a {
     color: white;
     text-decoration: none;
-    padding: 10px 15px;
+    padding: 10px 20px;
     font-size: 16px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
+    transition: color 0.3s ease, font-weight 0.3s ease;
 }
 
-/* 🟢 Seul le lien actif s'affiche */
+/* 🔥 Lien actif en surbrillance */
 #nav-menu a.active {
-    opacity: 1;
-    visibility: visible;
     font-weight: bold;
+    color: #ffcc00;
 }
 
 /* 🔴 Cacher toutes les sections sauf l’active */
@@ -139,7 +140,6 @@ section.active {
 html {
     scroll-behavior: smooth;
 }
-
 
 /*-------------------------------------PRESENTATION------------------------------------------*/
 
