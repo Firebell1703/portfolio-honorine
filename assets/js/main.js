@@ -1,10 +1,11 @@
 /*-------------------------------NAV SELECTOR--------------------------*/
+
 document.addEventListener("DOMContentLoaded", function () {
     const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll("#nav-menu a");
+    const navLinks = document.querySelectorAll("nav a");
 
     function updateActiveLink() {
-        let currentSection = "presentation"; // Valeur par défaut
+        let currentSection = "presentation"; // Section par défaut
         let minDistance = Infinity;
 
         sections.forEach(section => {
@@ -26,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Défilement fluide + mise à jour du lien actif
+    // Gestion du clic sur les liens pour smooth scroll
     navLinks.forEach(link => {
         link.addEventListener("click", function (e) {
             e.preventDefault();
@@ -42,6 +43,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    // Événement de défilement
     window.addEventListener("scroll", updateActiveLink);
-    updateActiveLink(); // Vérification au chargement
+    updateActiveLink(); // Vérification initiale
 });
+
