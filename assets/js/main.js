@@ -1,55 +1,41 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll("#nav-menu a");
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll("nav a");
 
-    function updateActiveSection() {
-        let currentSection = "presentation"; // Section par défaut
-        let minDistance = Infinity;
+  // Active la section 'Présentation' par défaut
+  const defaultSection = document.getElementById("presentation");
+  defaultSection.style.opacity = 1;
+  document.querySelector("nav a[href='#presentation']").classList.add("active");
 
-        sections.forEach(section => {
-            const rect = section.getBoundingClientRect();
-            const distance = Math.abs(rect.top);
-            
-            if (distance < minDistance) {
-                minDistance = distance;
-                currentSection = section.id;
-            }
-        });
-
-        sections.forEach(section => {
-            if (section.id === currentSection) {
-                section.classList.add("active");
-            } else {
-                section.classList.remove("active");
-            }
-        });
-
-        navLinks.forEach(link => {
-            if (link.getAttribute("href") === `#${currentSection}`) {
-                link.classList.add("active");
-            } else {
-                link.classList.remove("active");
-            }
-        });
-    }
-
-    // Gestion du clic sur les liens pour smooth scroll
-    navLinks.forEach(link => {
-        link.addEventListener("click", function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute("href").substring(1);
-            const targetSection = document.getElementById(targetId);
-
-            if (targetSection) {
-                window.scrollTo({
-                    top: targetSection.offsetTop,
-                    behavior: "smooth"
-                });
-            }
-        });
+  // Fonction pour afficher la section active
+  function activateSection(sectionId) {
+    sections.forEach((section) => {
+      section.style.opacity = "0"; // Masque toutes les sections
+      section.style.display = "none"; // Cache toutes les sections
     });
 
-    // Événement de défilement
-    window.addEventListener("scroll", updateActiveSection);
-    updateActiveSection(); // Vérification initiale
+    // Affiche la section sélectionnée
+    const activeSection = document.getElementById(sectionId);
+    activeSection.style.display = "block";
+    activeSection.style.opacity = "1"; // Restaure l'opacité pour la section active
+  }
+
+  // Fonction pour gérer le click sur les liens de navigation
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      
+      // Enlève l'active de tous les liens
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+      });
+
+      // Ajoute l'active sur le lien cliqué
+      link.classList.add("active");
+
+      // Récupère l'ID de la section correspondante
+      const sectionId = link.getAttribute("href").substring(1); // Extrait l'ID de la section
+      activateSection(sectionId);
+    });
+  });
 });
