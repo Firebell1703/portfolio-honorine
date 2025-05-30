@@ -1,34 +1,55 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const sections = document.querySelectorAll("section");
-  const navLinks = document.querySelectorAll("nav a");
+  const langBtn = document.getElementById("language");
+  let currentLang = "fr";
 
-  const defaultSection = document.getElementById("presentation");
-  defaultSection.style.opacity = 1;
-  document.querySelector("nav a[href='#presentation']").classList.add("active");
+  const translations = {
+    fr: {
+      langLabel: "Angl / Fre",
+      headerTitle: "C'est le portfolio d'Honorine en construction",
+      headerSubtitle: "Future masteré·e en recherche d'un travail",
+      introText: "Bienvenue sur mon portfolio !",
+    },
+    en: {
+      langLabel: "Fr / Eng",
+      headerTitle: "Honorine's portfolio (under construction)",
+      headerSubtitle: "Future master's graduate looking for a job",
+      introText: "Welcome to my portfolio!",
+    }
+  };
 
-  function activateSection(sectionId) {
-    sections.forEach((section) => {
-      section.style.opacity = "0";
-      section.style.display = "none";
-    });
+  langBtn.addEventListener("click", () => {
+    currentLang = currentLang === "fr" ? "en" : "fr";
+    langBtn.textContent = translations[currentLang].langLabel;
 
-    const activeSection = document.getElementById(sectionId);
-    activeSection.style.display = "block";
-    activeSection.style.opacity = "1";
-  }
+    // Change some header text
+    document.querySelector("header h1").textContent = translations[currentLang].headerTitle;
+    document.querySelector("header h2").textContent = translations[currentLang].headerSubtitle;
+    // You can update more elements here as needed
+  });
 
-  navLinks.forEach((link) => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
+  // === DARK MODE TOGGLE ===
+  const themeLink = document.getElementById("theme-style");
 
-      navLinks.forEach((link) => {
-        link.classList.remove("active");
-      });
+  const darkToggle = document.createElement("button");
+  darkToggle.id = "darkmode";
+  darkToggle.textContent = "🌙";
+  darkToggle.style.position = "fixed";
+  darkToggle.style.top = "10px";
+  darkToggle.style.left = "10px";
+  darkToggle.style.padding = "10px 15px";
+  darkToggle.style.border = "none";
+  darkToggle.style.borderRadius = "5px";
+  darkToggle.style.background = "#444";
+  darkToggle.style.color = "#fff";
+  darkToggle.style.cursor = "pointer";
+  darkToggle.style.zIndex = 999;
 
-      link.classList.add("active");
+  document.body.appendChild(darkToggle);
 
-      const sectionId = link.getAttribute("href").substring(1);
-      activateSection(sectionId);
-    });
+  let isDark = false;
+  darkToggle.addEventListener("click", () => {
+    isDark = !isDark;
+    themeLink.href = isDark ? "assets/css/dark-style.css" : "assets/css/style.css";
+    darkToggle.textContent = isDark ? "☀️" : "🌙";
   });
 });
