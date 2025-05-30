@@ -69,31 +69,6 @@
     background-color: var(--acc-s);
   }
   
-  /* NAVIGATION */
-  nav {
-    width: 100%;
-    background-color: var(--emph);
-    display: flex;
-    justify-content: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: var(--shadow);
-  }
-  
-  nav a {
-    color: var(--acc-s);
-    padding: 1rem 2rem;
-    text-decoration: none;
-    transition: 0.3s ease;
-    font-weight: bold;
-  }
-  
-  nav a:hover,
-  nav a.active {
-    background-color: var(--bg-s);
-    color: var(--emph);
-  }
   
   /* SCROLL */
   html {
@@ -198,6 +173,28 @@
     text-decoration: underline;
   }
 
+
+  /*MODALE*/
+
+  #modal {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: flex; justify-content: center; align-items: center;
+    color: white;
+  }
+  #modal.hidden {
+    display: none;
+  }
+  #modal .close {
+    position: absolute; top: 20px; right: 20px;
+    cursor: pointer; font-size: 2rem;
+  }
+  .gallery-item {
+    display: inline-block; margin: 10px; cursor: pointer;
+  }
+  .gallery-item img {
+    max-width: 150px;
+  }
 
   
   
